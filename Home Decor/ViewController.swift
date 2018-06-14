@@ -16,8 +16,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.session.run(config)
+        let capsuleNode = SCNNode(geometry: SCNCapsule(capRadius: 0.03, height: 0.1))
+        capsuleNode.position = SCNVector3(0.1, 0.1, -0.1)
+        sceneView.scene.rootNode.addChildNode(capsuleNode)
     }
 
 }
+
 
